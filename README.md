@@ -3,7 +3,7 @@
 Limesurvey Surveys for Camunda BPM Integration
 
 ## Features
-This plugin allows a process to be started in camunda after filling out a Limesurvey questionnaire and all questions are sent as variables to camunda.
+This plugin allows a process to be started in camunda after filling out a Limesurvey and all questions are sent as variables to camunda.
 
 
 ## Install
