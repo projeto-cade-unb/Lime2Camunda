@@ -1,3 +1,4 @@
+[<img src="assets/logo.png">](https://github.com/projeto-cade-unb/Lime2Camunda)
 # Lime2Camunda
 Limesurvey Surveys for Camunda BPM Integration
 
@@ -17,6 +18,7 @@ usercamunda = Your user in Camunda Server. Sample: demo
 passcamunda = Your password in Camunda Server. Sample: demo
 
 debugresponse = Displays a debug screen at the end of the survey if TRUE.
+
 
 
 ## Configs Surveys

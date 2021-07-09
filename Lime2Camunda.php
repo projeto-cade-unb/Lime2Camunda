@@ -6,6 +6,10 @@ class Lime2Camunda extends PluginBase {
     static protected $description = 'Limesurvey Surveys 2 Camunda BPM';
     
     protected $settings = array(
+	'logo' => array(
+	          'type' => 'logo',
+	          'path' => 'assets/logo.png'
+	),
         'urlrestcamunda' => array(
             'type' => 'string',
             'label' => 'REST URL Camunda'
@@ -38,6 +42,7 @@ class Lime2Camunda extends PluginBase {
         $usercamunda = $this->get('usercamunda');
         $passcamunda = $this->get('passcamunda');
         $debugresponse = $this->get('debugresponse');
+        $basicAuth64 = "Basic " . base64_encode($usercamunda.":".$passcamunda);
 
         $bMapQuestionCodes = true;
         $response = $this->pluginManager->getAPI()->getResponse($surveyId,$responseId,$bMapQuestionCodes);
@@ -87,7 +92,8 @@ class Lime2Camunda extends PluginBase {
 	
         	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 		            'Content-Type: application/json',
-		            'Content-Length: ' . strlen($data_string))
+		            'Content-Length: ' . strlen($data_string),
+		            'Authorization:' . $basicAuth64)
 	       	 );
  
 
