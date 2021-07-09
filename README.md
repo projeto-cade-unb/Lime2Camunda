@@ -16,7 +16,7 @@ usercamunda = Your user in Camunda Server. Sample: demo
 
 passcamunda = Your password in Camunda Server. Sample: demo
 
-debugresponse = Displays a debug screen at the end of the quiz if TRUE.
+debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
 
 ## Configs Surveys
