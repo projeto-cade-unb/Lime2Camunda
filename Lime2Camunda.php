@@ -12,19 +12,23 @@ class Lime2Camunda extends PluginBase {
 	),
         'urlrestcamunda' => array(
             'type' => 'string',
-            'label' => 'REST URL Camunda'
+            'label' => 'REST URL Camunda',
+            'help' => 'Informe a URL do Engine-Rest do Camunda Server. Exemplo: http://localhost:8080/engine-rest/'
         ),
         'usercamunda' => array(
             'type' => 'string',
-            'label' => 'Usuário no Camunda'
+            'label' => 'Usuário no Camunda',
+            'help' => 'Informe e usuario de login no camunda com suporta a instânciar processos. exemplo: demo'
         ),
         'passcamunda' => array(
             'type' => 'string',
-            'label' => 'Senha do Usuário Camunda'
+            'label' => 'Senha do Usuário Camunda',
+	    'help' => 'informe a senha do usuário que ira inst6anciar processos. exemplo: demo'
         ),
         'debugresponse' => array(
             'type' => 'boolean',
-            'label' => 'Apresenta debug no final do Questionário?'
+            'label' => 'Debug no final do Questionário?',
+            'help' =>  'Se habilitado permitirá o respondente do questionário visualizar todos dados enviados para o camunda inclusive o retorno do Start Process'
         ),
     );
     
@@ -47,12 +51,10 @@ class Lime2Camunda extends PluginBase {
         $bMapQuestionCodes = true;
         $response = $this->pluginManager->getAPI()->getResponse($surveyId,$responseId,$bMapQuestionCodes);
 
-
         if ($debugresponse) {
 	        $event->getContent($this)
         	      ->addContent('Todas Respostas do Questionário Camunda<br/><pre>' . print_r($response, true) . '</pre>');
         }
-
         
         foreach ($response as $name => $value)
         {
@@ -97,11 +99,30 @@ class Lime2Camunda extends PluginBase {
 	       	 );
  
 
-	       $resultCamumda = curl_exec($ch);
+	       $resultCamunda = curl_exec($ch);
  	       if ($debugresponse) {
 		       $event->getContent($this)
- 	      		      ->addContent('Resultado do EndPoint da Camunda com numero da instância gerada:<br/><pre>' . print_r($resultCamumda, true) . '</pre>');
+ 	      		      ->addContent('Resultado do EndPoint da Camunda com numero da instância gerada:<br/><pre>' . print_r($resultCamunda, true) . '</pre>');
 		}
+
+
+              $resultCamundaArray = json_decode($resultCamunda);
+	      foreach ($resultCamundaArray as $name => $value)
+       		 {
+                     if ( $name == "links" ) { 
+                          foreach ( (array)$value as $name2 => $value2) {
+	                          foreach ( (array)$value2 as $name3 => $value3) {
+					if ( $name3 == "href") {
+                                               $linkcamunda = str_replace("engine-rest/process-instance","camunda/app/cockpit/default/#/process-instance",$value3);
+					       $event->getContent($this)
+ 				      		      ->addContent("<a href='" . $linkcamunda . "'> Clique aqui para Camunda acessar o Cookipt da Instância gerada</a>");
+                                       }
+				  }
+                         }
+                    }
+		 }
+	
+
 	}
 
     }
