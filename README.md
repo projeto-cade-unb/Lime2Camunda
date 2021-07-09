@@ -23,8 +23,8 @@ debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
 ## Configs Surveys
 
- 1 - Add One question in first position your survey with code DEFINITIONKEY and add your CAMUNDA DEFINITION KEY for Default value this Question.
- 2 - Hidden this question.
+ * Add One question in first position your survey with code DEFINITIONKEY and add your CAMUNDA DEFINITION KEY for Default value this Question.
+ * Hidden this question.
 
 # Credits 
   Marcio Junior Vieira - Projeto CADE UNB.
