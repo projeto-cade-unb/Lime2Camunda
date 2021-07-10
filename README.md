@@ -19,10 +19,15 @@ passcamunda = Your password in Camunda Server. Sample: demo
 
 debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
+ScreenShot Config
+[<img src="assets/screenshot-config.png">]()
 
-### New features
+
+### New features in RoadMap 0.02
    - Add user and password in survey
    - Add send to camunda in question parameters.
+   - remove question DEFINITIONKEY and add parameter in Survey
+
 
 ## Configs Surveys
 
