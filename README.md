@@ -7,7 +7,12 @@ This plugin allows a process to be started in camunda after filling out a Limesu
 
 
 ## Install
-The same is a Limesurvey plugin and follow all your recommendations so to install just copy the project to the Limesurvey plugins folder and access the plugin manager to configure and enable. 
+The same is a Limesurvey plugin and follow all your recommendations.
+
+* for stable versions download releases in https://github.com/projeto-cade-unb/Lime2Camunda/releases
+
+* For developer version:
+  to install just copy the project to the Limesurvey plugins folder and access the plugin manager to configure and enable. 
 
 ## Configs plugin
 
