@@ -140,7 +140,7 @@ class Lime2Camunda extends PluginBase {
                                                $linkcamunda = str_replace("engine-rest/process-instance","camunda/app/cockpit/default/#/process-instance",$value3);
 				 	       if ($debugresponse) {
 						       $event->getContent($this)
- 				      		 	     ->addContent("<a href='" . $linkcamunda . "'> Clique aqui para Camunda acessar o Cookipt da Instância gerada</a>");
+ 				      		 	     ->addContent("<a href='" . $linkcamunda . "'> Clique aqui para acessar o Camunda Cookipt e visualizar a Instância gerada</a>");
 						}
                                        }
 				  }
