@@ -48,8 +48,8 @@ debugresponse = Displays a debug screen at the end of the survey if TRUE.
  * Hidden this question.
 
 # Credits 
-  Marcio Junior Vieira - Dev - Projeto CADE UNB.
-  Vinícius Eloy - Mentor - Projeto CADE UNB.
+ * Marcio Junior Vieira - Dev - Projeto CADE UNB.
+ * Vinícius Eloy - Mentor - Projeto CADE UNB.
 
 # License 
   GLP V3
