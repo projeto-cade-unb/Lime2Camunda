@@ -45,7 +45,7 @@ class Lime2Camunda extends PluginBase {
         'passcamunda' => array(
             'type' => 'password',
             'label' => 'Senha do Usuário Camunda',
-	    'help' => 'informe a senha do usuário que ira inst6anciar processos. exemplo: demo',
+	    'help' => 'informe a senha do usuário que ira instânciar processos. exemplo: demo',
 	    'default' => 'demo'
         ),
         'debugresponse' => array(
@@ -60,8 +60,9 @@ class Lime2Camunda extends PluginBase {
     {
         //$this->subscribe('onPluginRegistration');
         $this->subscribe('afterSurveyComplete', 'StartProcessCamunda');
-        //$this->subscribe('newSurveySettings');
+        $this->subscribe('newSurveySettings');
         //$this->subscribe('beforeSurveySettingsSave');
+        $this->subscribe('beforeSurveySettings');
     }
 
     public function StartProcessCamunda()
@@ -88,18 +89,13 @@ class Lime2Camunda extends PluginBase {
 
          if ($name == "DEFINITIONKEY") {
                 $definitionkey = $value; 
-
-		$dataVar = array(
-        	       "variables"=> array(
-        	       "definitionkey"=> array("value"=>$definitionkey,"type"=>"String")
-		     )
-		    );
-
+		$dataVar = array( "variables"=> array(
+        	                  "definitionkey"=> array("value"=>$definitionkey,"type"=>"String"))
+				);
 	        if ($debugresponse) {
 		        $event->getContent($this)
 		              ->addContent('Definition key encontrada no Questionario <br/><pre>' . print_r($value, true) . '</pre>');
-		}
-                
+		}                
          }
          elseif ($definitionkey != "" and $name != "lastpage") {
              $dataVar['variables'][$name]  = array("value"=>$value,"type"=>"String"); 
@@ -150,7 +146,36 @@ class Lime2Camunda extends PluginBase {
 	}
 
     }
-/*
+
+    public function beforeSurveySettings()  {
+            $pluginsettings = $this->getPluginSettings(true);
+
+            $event = $this->getEvent();
+            $event->set("surveysettings.{$this->id}", array(
+                'name' => get_class($this),
+                'settings' => array(
+                    'definitionkey' => array(
+                        'type' => 'string',
+                        'label' => 'Info the Definition Key Process:',
+                        'help' => 'See this Key in Camunda Cookpit Deployments or in Camunda Modeler, Sample in Project SEI: SEI_100000512',
+                        'current' => $this->get('definitionkey', 'Survey', $event->get('survey'))
+                    ),
+		   'usercamundasurvey' => array(
+		        'type' => 'string',
+        	        'label' => 'Usuário no Camunda',
+          		'help' => 'Informe e usuario de login no camunda com suporta a instânciar processos. Se vazio será usada config Global.',
+		        'current' => $this->get('usercamundasurvey', 'Survey', $event->get('survey'))
+	            ),
+                   'passcamundasurvey' => array(
+                        'type' => 'password',
+                        'label' => 'Senha do Usuário Camunda',
+              	        'help' => 'informe a senha do usuário que ira instânciar processos. Se vazio será usada config Global.',
+		        'current' => $this->get('passcamundasurvey', 'Survey', $event->get('survey'))
+                   )
+                )
+            ));
+     }
+
     public function newSurveySettings()
     {
         $event = $this->event;
@@ -161,7 +186,7 @@ class Lime2Camunda extends PluginBase {
             $this->set($name, $value, 'Survey', $event->get('survey'),$default);
         }
     }
-*/
+
 /*
     public function beforeSurveySettings()
     {
@@ -169,93 +194,16 @@ class Lime2Camunda extends PluginBase {
         $event->set("surveysettings.{$this->id}", array(
             'name' => get_class($this),
             'settings' => array(
-                'boolean'=>array(
-                    'type'=>'boolean',
-                    'label'=>'A boolean setting',
-                    'help'=>'An help text',
-                    'current' => $this->get('boolean', 'Survey', $event->get('survey'),$this->get('boolean',null,null,$this->settings['boolean']['default'])),
-                ),
-                'checkbox'=>array(
-                    'type'=>'checkbox',
-                    'label'=>'A checkbox setting',
-                    'help'=>'An help text',
-                    'current' => $this->get('checkbox', 'Survey', $event->get('survey'),$this->get('checkbox'))
-                ),
-                'float'=>array(
-                    'type'=>'float',
-                    'label'=>'A float setting',
-                    'help'=>'The pattern is set to  "\d+(\.\d+)?"',
-                    'current' => $this->get('float', 'Survey', $event->get('survey'),$this->get('float',null,null,$this->settings['float']['default'])),
-                ),
-                'html'=>array(
-                    'type'=>'html',
-                    'label'=>'A html setting',
-                    'help'=>'Some help for HTML5 editor"',
-                    'current' => $this->get('html', 'Survey', $event->get('survey'),$this->get('html',null,null,$this->settings['html']['default'])),
-                ),
-                'int'=>array(
-                    'type'=>'int',
-                    'label'=>'A int setting',
-                    'help'=>'For integer value, pattern is "\d+"',
-                    'current' => $this->get('int', 'Survey', $event->get('survey'),$this->get('int',null,null,$this->settings['int']['default'])),
-                ),
-                'json'=>array(
-                    'type'=>'json',
-                    'label'=>'A json setting',
-                    'editorOptions'=>array('mode'=>'tree'),
-                    'help'=>'For json settings, here with \'editorOptions\'=>array(\'mode\'=>\'tree\'), . See jsoneditoronline.org',
-                    'current' => $this->get('json', 'Survey', $event->get('survey'),$this->get('json',null,null,$this->settings['json']['default'])),
-                ),
-                'logo'=>array(
-                    'type'=>'logo',
-                    'label'=> 'A logo with a label',
-                    'path'=>Yii::app()->baseUrl."/plugins/exampleSettings/assets/logo.png",
-                ),
-                'info' => array(
-                    'type' => 'info',
-                    'content' => 'Some information to show to admin. You can use html code like <strong>strong</strong> or more with bootstrap for example',
-                ),
-                'relevance'=>array(
-                    'type'=>'relevance',
-                    'label'=>'A relevance setting',
-                    'help'=>'A relevance setting',
-                    'current' => $this->get('relevance', 'Survey', $event->get('survey'),$this->get('relevance')),
-                ),
-                'select'=>array(
+             'sendcamunda'=>array(
                     'type'=>'select',
                     'label'=>'A select setting',
                     'options'=>array(
-                        'opt1'=>'Option 1',
-                        'opt2'=>'Option 2',
-                        'opt3'=>'Option 3 (default)',
+                        '0'=>'No',
+                        '1'=>'Yes',
                     ),
                     'help'=>'A select setting, need an array of option.',
-                    'current' => $this->get('select', 'Survey', $event->get('survey'),$this->get('select',null,null,$this->settings['select']['default'])),
+                    'current' => $this->get('sendcamunda', 'Survey', $event->get('survey'),$this->get('select',null,null,$this->settings['select']['default'])),
                 ),
-                'string'=>array(
-                    'type'=>'string',
-                    'label'=>'A string setting',
-                    'help'=>'Some help.',
-                    'current' => $this->get('string', 'Survey', $event->get('survey'),$this->get('string',null,null,$this->settings['string']['default'])),
-                ),
-                'text'=>array(
-                    'type'=>'text',
-                    'label'=>'A text setting',
-                    'help'=>'Some help.',
-                    'current' => $this->get('text', 'Survey', $event->get('survey'),$this->get('text',null,null,$this->settings['text']['default'])),
-                ),
-                'password'=>array(
-                    'type'=>'password',
-                    'label'=>'A password setting',
-                    'help'=>'Some help.',
-                    'current' => $this->get('password', 'Survey', $event->get('survey'),$this->get('password',null,null,$this->settings['password']['default'])),
-                ),
-                'date' => array(
-                    'type' => 'date',
-                    'label' => 'A date',
-                    'Help' => 'Date help',
-                    'current' => $this->get('password', 'Survey', $event->get('survey'),$this->get('password',null,null,''))
-                )
             )
          ));
     }
