@@ -43,7 +43,7 @@ class Lime2Camunda extends PluginBase {
 	    'default' => 'demo'
         ),
         'passcamunda' => array(
-            'type' => 'string',
+            'type' => 'password',
             'label' => 'Senha do Usuário Camunda',
 	    'help' => 'informe a senha do usuário que ira inst6anciar processos. exemplo: demo',
 	    'default' => 'demo'
