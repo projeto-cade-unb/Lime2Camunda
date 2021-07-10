@@ -19,13 +19,13 @@ passcamunda = Your password in Camunda Server. Sample: demo
 
 debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
-##ScreenShot
+## ScreenShots
 
-### Config
+### ScreenShot Config
 
 [<img src="assets/screenshot-config1.png">]()
 
-### Debug
+### ScreenShot Debug
 
 [<img src="assets/screenshot-debug.png">]()
 
