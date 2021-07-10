@@ -142,11 +142,9 @@ class Lime2Camunda extends PluginBase {
 						}
                                        }
 				  }
-                         }
-                    }
+                          }
+                     }
 		 }
-	
-
 	}
 
     }
