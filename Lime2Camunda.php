@@ -3,7 +3,7 @@
  * Lime2Camunda: Integration Surveus LimeSurvey with Camunda Server 
  *
  * @author Marcio Junior Vieira <marcio@ambientelivre.com.br>
- * @copyright 2021-2021 Denis Chenu <http://www.sondages.pro>
+ * @copyright 2021-2021 - Projeto UNB Cade
 
  * @license GPL v3
  * @version 0.01
