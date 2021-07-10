@@ -20,6 +20,9 @@ passcamunda = Your password in Camunda Server. Sample: demo
 debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
 
+### New features
+   - Add user and password in survey
+   - Add send to camunda in question parameters.
 
 ## Configs Surveys
 

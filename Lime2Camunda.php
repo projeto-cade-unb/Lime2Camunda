@@ -13,22 +13,26 @@ class Lime2Camunda extends PluginBase {
         'urlrestcamunda' => array(
             'type' => 'string',
             'label' => 'REST URL Camunda',
-            'help' => 'Informe a URL do Engine-Rest do Camunda Server. Exemplo: http://localhost:8080/engine-rest/'
+            'help' => 'Informe a URL do Engine-Rest do Camunda Server. Exemplo: http://localhost:8080/engine-rest/',
+	    'default' => 'http://localhost:8080/engine-rest/'
         ),
         'usercamunda' => array(
             'type' => 'string',
             'label' => 'Usuário no Camunda',
-            'help' => 'Informe e usuario de login no camunda com suporta a instânciar processos. exemplo: demo'
+            'help' => 'Informe e usuario de login no camunda com suporta a instânciar processos. exemplo: demo',
+	    'default' => 'demo'
         ),
         'passcamunda' => array(
             'type' => 'string',
             'label' => 'Senha do Usuário Camunda',
-	    'help' => 'informe a senha do usuário que ira inst6anciar processos. exemplo: demo'
+	    'help' => 'informe a senha do usuário que ira inst6anciar processos. exemplo: demo',
+	    'default' => 'demo'
         ),
         'debugresponse' => array(
             'type' => 'boolean',
             'label' => 'Debug no final do Questionário?',
-            'help' =>  'Se habilitado permitirá o respondente do questionário visualizar todos dados enviados para o camunda inclusive o retorno do Start Process'
+            'help' =>  'Se habilitado permitirá o respondente do questionário visualizar todos dados enviados para o camunda inclusive o retorno do Start Process',
+	    'default' => TRUE
         ),
     );
     
@@ -98,13 +102,11 @@ class Lime2Camunda extends PluginBase {
 		            'Authorization:' . $basicAuth64)
 	       	 );
  
-
 	       $resultCamunda = curl_exec($ch);
  	       if ($debugresponse) {
 		       $event->getContent($this)
  	      		      ->addContent('Resultado do EndPoint da Camunda com numero da instância gerada:<br/><pre>' . print_r($resultCamunda, true) . '</pre>');
 		}
-
 
               $resultCamundaArray = json_decode($resultCamunda);
 	      foreach ($resultCamundaArray as $name => $value)
