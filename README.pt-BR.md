@@ -40,6 +40,7 @@ debugresponse = Exibe uma tela de depuração no final da pesquisa se TRUE.
 [<img src="assets/screenshot-debug.png">]()
 
 ### Novas funcionalidades - RoadMap 0.02
+    - Refatoração de código - OK
     - Adicionar usuário e senha na pesquisa.
     - Adicionar enviar para camunda nos parâmetros da questão.
     - Remova a pergunta DEFINITIONKEY e adicione o parâmetro na pesquisa.
