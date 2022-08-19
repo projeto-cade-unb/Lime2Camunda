@@ -1,6 +1,11 @@
 # Lime2Camunda
 Limesurvey Surveys for Camunda BPM Plataform Integration
+
 [<img src="assets/logo.png">](https://github.com/projeto-cade-unb/Lime2Camunda)
+
+## Translate
+[Portuguese] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.pt-BR.md)
+[English] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.md)
 
 ## Features
 This plugin allows a process to be started in camunda after filling out a Limesurvey and all questions are sent as variables to Camunda.

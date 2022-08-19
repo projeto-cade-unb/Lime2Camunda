@@ -2,7 +2,11 @@
 # Lime2Camunda
 Integração de formulários Limesurvey com Camunda BPM Plataform.
 
-## Características
+## Tradução
+[Português] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.pt-BR.md)
+[Inglês] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.md)
+
+## Funcionalidades
 Este plugin permite que um processo seja iniciado na camunda após o preenchimento de um Limesurvey e todas as perguntas são enviadas como variáveis para a Camunda.
 
 ## Instalação
