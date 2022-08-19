@@ -1,19 +1,20 @@
 [<img src="assets/logo.png">](https://github.com/projeto-cade-unb/Lime2Camunda)
 # Lime2Camunda
-Limesurvey Surveys for Camunda BPM Integration
+Limesurvey Surveys for Camunda BPM Plataform Integration
 
 ## Features
-This plugin allows a process to be started in camunda after filling out a Limesurvey and all questions are sent as variables to camunda.
+This plugin allows a process to be started in camunda after filling out a Limesurvey and all questions are sent as variables to Camunda.
 
 
 ## Install
 The same is a Limesurvey plugin and follow all your recommendations.
 
-* for stable versions download releases in https://github.com/projeto-cade-unb/Lime2Camunda/releases
+* Stable versions:
+ download releases in https://github.com/projeto-cade-unb/Lime2Camunda/releases
   copy the release in extract to the Limesurvey plugins folder and access the plugin manager to configure and enable.
 
 * For developer version:
-  to install just copy the project to the Limesurvey plugins folder and access the plugin manager to configure and enable. 
+  to install just copy the project to the Limesurvey plugins folder and access the plugin manager to configure and enable.
 
 ## Configs plugin
 
@@ -47,9 +48,9 @@ debugresponse = Displays a debug screen at the end of the survey if TRUE.
  * Add One question in first position your survey with code DEFINITIONKEY and add your CAMUNDA DEFINITION KEY for Default value this Question.
  * Hidden this question.
 
-# Credits 
+# Credits
  * Marcio Junior Vieira - Dev - Projeto CADE UNB.
  * Vinícius Eloy - Mentor - Projeto CADE UNB.
 
-# License 
-  GLP V3
+# License
+  [License GPL v3.0](https://github.com/projeto-cade-unb/LICENSE.GPLv3)
