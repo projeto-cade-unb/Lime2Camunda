@@ -3,7 +3,7 @@
 Integração de formulários Limesurvey com Camunda BPM Plataform.
 
 ## Tradução
-[Português] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.pt-BR.md)
+[Português] (https://github.com/projeto-cade-unb/Lime2Camunda/blob/main/README.pt-BR.md)
 
 [Inglês] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.md)
 

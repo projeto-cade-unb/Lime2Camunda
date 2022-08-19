@@ -4,7 +4,7 @@ Limesurvey Surveys for Camunda BPM Plataform Integration
 [<img src="assets/logo.png">](https://github.com/projeto-cade-unb/Lime2Camunda)
 
 ## Translate
-[Portuguese] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.pt-BR.md)
+[Portuguese] (https://github.com/projeto-cade-unb/Lime2Camunda/blob/main/README.pt-BR.md)
 
 [English] (https://github.com/projeto-cade-unb/Lime2Camunda/REAMDE.md)
 
