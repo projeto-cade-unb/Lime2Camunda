@@ -44,6 +44,7 @@ debugresponse = Displays a debug screen at the end of the survey if TRUE.
 
 
 ### New features in RoadMap 0.02
+   - Refactoring in code - OK
    - Add user and password in survey
    - Add send to camunda in question parameters.
    - remove question DEFINITIONKEY and add parameter in Survey
