@@ -52,7 +52,7 @@ debugresponse = Exibe uma tela de depuração no final da pesquisa se TRUE.
 * Escondido esta pergunta.
 
 # Créditos
-* Marcio Junior Vieira(https://www.linkedin.com/in/mvieira1/) - Dev - Projeto CADE UNB. [Linkedin]
+* Marcio Junior Vieira(https://www.linkedin.com/in/mvieira1/) - Dev - Projeto CADE UNB.
 * Vinícius Eloy(https://www.linkedin.com/in/vinicius-eloy-a28b203/) - Mentor - Projeto CADE UNB.
 
 Universidade de Brasília - Latitude - Laboratório de Tecnologias da Tomada de Decisão
