@@ -58,8 +58,9 @@ debugresponse = Displays a debug screen at the end of the survey if TRUE.
  * Hidden this question.
 
 # Credits
-* Marcio Junior Vieira(https://www.linkedin.com/in/mvieira1/) - Dev - Projeto CADE UNB.
-* Vinícius Eloy(https://www.linkedin.com/in/vinicius-eloy-a28b203/) - Mentor - Projeto CADE UNB.
+* [Marcio Junior Vieira](https://www.linkedin.com/in/mvieira1/) - Dev - Projeto CADE UNB.
+* [Vinícius Eloy](https://www.linkedin.com/in/vinicius-eloy-a28b203/) - Mentor - Projeto CADE UNB.
+* [Denise Mitie Taketomi](http://lattes.cnpq.br/4150411752944887) - Coordenadora - Projeto CADE UNB.
 
 Universidade de Brasília - Latitude - Laboratório de Tecnologias da Tomada de Decisão
 read more about Latitude Laboratory(https://www.latitude.unb.br/)
